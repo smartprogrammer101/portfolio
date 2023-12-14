@@ -25,7 +25,7 @@ export default function Home() {
             <Link
               href={'/contact'}
               className='font-bold text-3xl flex items-center gap-4 group hover:text-muted-foreground transition-colors'
-            >Let's work together <ArrowRight className='inline group-hover:translate-x-2 transition-transform' /></Link>
+            >Let&apos;s work together <ArrowRight className='inline group-hover:translate-x-2 transition-transform' /></Link>
           </div>
           <div>
             <h2 className='font-bold text-xl'>Contact information</h2>
