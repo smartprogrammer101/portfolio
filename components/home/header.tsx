@@ -7,6 +7,15 @@ import { ArrowDownZA, ScrollIcon } from 'lucide-react'
 import { TriangleDownIcon } from '@radix-ui/react-icons'
 
 export default function Header() {
+  const handleClick = () => {
+    const main = document.querySelector("main")
+    console.log(main?.offsetTop)
+    if (main?.offsetTop) {
+      scrollTo({
+        top: main.offsetTop - 70
+      })
+    }
+  }
   return (
     <header className={cn(
       'relative max-w-[1300px] min-h-[calc(100vh_-_70px)] mx-auto md:px-10 grid grid-rows-1 md:grid-cols-2',
@@ -25,12 +34,12 @@ export default function Header() {
               y: 100, opacity: 0
             }}
             animate={{
-              y: 0, opacity: 1
+              y: 0, opacity: 1,
+              transition:{delay: .5}
             }}
-            exit={{
-              y: 100, opacity: 0
-            }}
-            transition={{delay: .5}}
+            // exit={{
+            //   y: 100, opacity: 0
+            // }}
           >Iwu&nbsp;Emmanuel</motion.span>
           <motion.span
             className='block font-bold mt-1 text-4xl md:text-5xl text-foreground leading-10'
@@ -38,12 +47,12 @@ export default function Header() {
               y: 10, opacity: 0
             }}
             animate={{
-              y: 0, opacity: [0,1]
+              y: 0, opacity: [0,1],
+            transition:{delay: .6}
             }}
-            exit={{
-              y: 10, opacity: 0
-            }}
-            transition={{delay: .7}}
+            // exit={{
+            //   y: 10, opacity: 0
+            // }}
           >Website&nbsp;developer and <br /> graphics&nbsp;designer</motion.span>
         </h1>
         <motion.p
@@ -55,20 +64,34 @@ export default function Header() {
           animate={{
             opacity: 1,
             scale: 1,
-          transition: {delay: .95}
+          transition: {delay: .7}
           }}
-          exit={{
-            scale: [1, 1, .7], opacity: 0
-          }}
+          // exit={{
+          //   scale: [1, 1, .7], opacity: 0
+          // }}
         >Over the past 9 years, as an art director and designer, I&apos;ve worked with big companies and up-and-coming startups to successfully help them reach their full potential and attract new customers.</motion.p>
         <Link
           href={"/about"}
           className={cn(
+            'block w-fit mt-4',
+            // 'block w-fit mt-4 bg-foreground text-background py-4 px-6 md:px-10',
+            // 'hover:bg-secondary-foreground focus-within:ring-offset-4 focus-within:ring-4 ring-foreground/30',
+            // 'transition-shadow'
+          )}
+        >
+          <motion.span
+            initial={{opacity: 0}}
+            animate={{
+              opacity: 1,
+              y: [10, 0, 10, 0],
+              transition: {delay: .9, duration: .5}
+            }}
+            className={cn(
             'block w-fit mt-4 bg-foreground text-background py-4 px-6 md:px-10',
-            'hover:bg-secondary-foreground focus-within:ring-offset-4 focus-within:ring-4 ring-foreground/30',
+            'hover:ring ring-offset-4 ring-foreground/30 ring-offset-background',
             'transition-shadow'
           )}
-        >More about me</Link>
+          >More about me</motion.span></Link>
       </motion.div>
       <div className={cn(
         'absolute inset-0 md-max:bg-gradient-to-b md-max:from-background/5 md-max:to-background z-[2]'
@@ -88,7 +111,7 @@ export default function Header() {
           }}
         />
       </div>
-      <button>
+      <button onClick={ () => handleClick() }>
         <TriangleDownIcon className='absolute bottom-10 z-[3] translate-x-[50%] left-[50%] animate-bounce scale-[5]' />
       </button>
       {/* <ArrowDownZA /> */}

@@ -2,12 +2,18 @@ import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import { projects as projectsData } from '@/lib/projects-data'
+// import { projects as projectsData } from '@/lib/projects-data'
 import { ExternalLinkIcon } from '@radix-ui/react-icons'
 import { motion } from 'framer-motion'
+import { ProjectsList } from '@/types'
 
-export default function ProjectsSection() {
-  const projects = React.useMemo(() => projectsData, [])
+
+type ProjectsSectionProps = {
+  projects: ProjectsList
+}
+
+export default function ProjectsSection({ projects }: ProjectsSectionProps) {
+  // const projects = React.useMemo(() => projectsData, [])
   return (
     <div className='grid gap-24 px-6'>
       {/* School management system */}
@@ -61,18 +67,19 @@ function ProjectCardWrapper({ reversed, children, className, ...props }: Project
       {...props}
       initial={{
         opacity: 0,
-        y: 10
+        y: 70
       }}
       // animate={}
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: { delay: .4 },
+        // transition: { delay: .1 },
+        transition: { duration: .3 },
       }}
       viewport={{
         once: true,
         margin: '0px -20px 0px 100px',
-        amount: .1
+        amount: .3
       }}
     >
       {children}
@@ -100,13 +107,17 @@ type ProjectCardImageProps = {
 }
 function ProjectCardImage({ src, href }: ProjectCardImageProps) {
   return (
-    <div className='group relative flex-1 overflow-hidden rounded-md'>
+    <div className='group relative flex-1  rounded-md'>
       <motion.img
-        key={2}
+        // key={2}
         layout
         layoutId={src}
         src={src}
-        className='w-full h-full group-hover:scale-110 transition-transform duration-700' />
+        className={cn(
+          'w-full h-full',
+          // 'group-hover:scale-110 transition-transform duration-700'
+          )}
+        />
       <Link
         href={href}
         className={cn(

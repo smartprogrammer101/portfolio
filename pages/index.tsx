@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { cn } from "@/lib/utils"
+import { cn, getProjectsData } from "@/lib/utils"
 import Link from 'next/link'
 import { Header } from '@/components/home'
 import { ArrowRight, Mail, Phone, Twitter } from 'lucide-react'
@@ -8,14 +8,19 @@ import { motion } from 'framer-motion'
 import ProjectsSection from '@/components/projects/ProjectsSection'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
-export default function Home() {
+
+type HomeProps = {
+  projects: ReturnType<typeof getProjectsData>
+}
+
+export default function Home({ projects }: HomeProps) {
   return (
     <div>
       <Header />
       <main className='py-4'>
         <section className='px-4'>
           <h2 className='font-semibold md:font-bold md:text-3xl px-4 mt-10 md:mt-20 mb-4 md:mb-10 md:text-center'>Projects</h2>
-          <ProjectsSection />
+          <ProjectsSection projects={ projects } />
           <Link
             href={'/projects'}
             className={cn(
@@ -52,4 +57,14 @@ export default function Home() {
       </main>
     </div>
   )
+}
+
+
+export async function getStaticProps() {
+  const data = getProjectsData()
+  return {
+    props: {
+      projects: data
+    }
+  }
 }

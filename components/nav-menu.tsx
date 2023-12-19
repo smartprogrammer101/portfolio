@@ -11,6 +11,8 @@ import { Cross1Icon } from '@radix-ui/react-icons'
 import { useRouter } from 'next/router'
 import { UrlObject } from 'url'
 import { MenuContainerVariant, MenuItemVariant } from '@/lib/variants'
+import LogoIcon from './logo-icon'
+import BrandIcon from './brand-icon'
 
 export default function NavMenu() {
   const setOpenNavMenu = useGlobalStore(state => state.setOpenNavMenu);
@@ -32,8 +34,15 @@ export default function NavMenu() {
       }}
       transition={{ duration: .5 }}
     >
-      <div className='absolute top-0 p-4 flex items-center justify-between gap-10 ring w-full'>
-        <h2>LOGO</h2>
+      <div className='absolute top-0 px-8 flex items-center justify-between gap-10 w-full'>
+      <Link
+        href={'/'}
+        className='w-[200px] flex gap-4 items-center pt-1'
+      >
+        {/* <img src='/personal-brand.svg' alt='brand name' /> */}
+        <LogoIcon className='fill-background stroke-background dark:fill-foreground dark:stroke-foreground' />
+        <BrandIcon className='fill-background dark:fill-foreground' />
+      </Link>
         <div className='flex items-center gap-8'>
           <ModeToggle className='text-foreground' />
           <button

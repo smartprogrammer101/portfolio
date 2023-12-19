@@ -10,12 +10,26 @@ export default function About() {
       <header className='h-[calc(100vh_-_70px)] flex flex-col justify-center items-center gap-4 py-10 max-w-3xl md:mx-auto'>
         <motion.h1
           className='text-center text-muted-foreground tracking-widest mb-2'
-          initial={{}}
+          initial={{scale: .8, opacity: 0}}
+          animate={{scale: 1, opacity: 1}}
+          transition={{type: 'tween', delay: .7}}
         >A FEW WORDS ABOUT ME</motion.h1>
-        <div className='md:text-xl tracking-wider'>
-          <p>I&apos;m Iwu Emmanuel, a multidisciplinary designer who focuses on telling my clients&apos; stories visually, through enjoyable and meaningful experiences. I specialize in responsive websites and functional user interfaces.</p>
-          <p>Over the past 9 years I have been working with big companies and rising startups around the world as a designer and art director, working solo and leading small design teams. In my spare time I enjoy playing football and video games.</p>
-          <p>As a Junior Front-End Developer, I possess an impressive arsenal of skills in HTML, CSS, JavaScript, React, Tailwind, and SCSS. I excel in designing and maintaining responsive websites that offer a smooth user experience. My expertise lies in crafting dynamic, engaging interfaces through writing clean and optimized code and utilizing cutting-edge development tools and techniques. I am also a team player who thrives in collaborating with cross-functional teams to produce outstanding web applications.</p>
+        <div className='flex flex-col gap-6 font-normal md:text-xl tracking-wider'>
+          <motion.p
+            initial={{y: 30, opacity: 0}}
+            animate={{y: 0, opacity: 1}}
+            transition={{ type: 'tween', duration: .2, delay: .2}}
+          >I&apos;m Iwu Emmanuel, a highly creative designer who focuses on my clients&apos; success, both online and offline, through enjoyable and meaningful experiences. I specialize in responsive websites and graphics design.</motion.p>
+          <motion.p
+            initial={{y: 30, opacity: 0}}
+            animate={{y: 0, opacity: 1}}
+            transition={{ type: 'tween', duration: .2, delay: .4}}
+          >Over the past 3 years I have been working on real world projects such as an e-commerce website and a school management system. I have not really worked for any company as I have been having fun with personal projects, although I am now open for opportunities. In my spare time I enjoy playing football and video games.</motion.p>
+          <motion.p
+            initial={{y: 30, opacity: 0}}
+            animate={{y: 0, opacity: 1}}
+            transition={{ type: 'tween', duration: .2, delay: .6}}
+          >As a Web Developer, I possess an impressive arsenal of skills: Frontend, backend, full stack, rest APIs, software testing, database design and management, and many more. I excel in designing and maintaining responsive websites that offer a smooth user experience. My expertise lies in crafting dynamic, engaging interfaces through writing clean and optimized code and utilizing cutting-edge development tools and techniques. I am also a team player who thrives in collaborating with cross-functional teams to produce outstanding web applications.</motion.p>
         </div>
       </header>
       <main>
@@ -49,6 +63,20 @@ export default function About() {
             </CardContent>
           </Card>
         </div>
+        <section>
+          <h2>Things I can do</h2>
+          <ul className='list-disc'>
+            <li>Beautiful, responsive and highly interactive websites</li>
+            <li>Frontend with React and Next js</li>
+            <li>Backend with Django</li>
+            <li>Full stack with React &amp; Django, Next js</li>
+            <li>RESTFUL APIs with Django Rest Framework</li>
+            <li>Robust testing of the frontend, backend and APIs to ensure confidence of the development process</li>
+            <li>Database design, integrity, management, security, backup, e.t.c</li>
+            <li>Digital Marketing</li>
+            <li>Graphics design of fliers, logos, banners, business cards, e.t.c</li>
+          </ul>
+        </section>
         <h2 className='md:text-center text-muted-foreground'>Experience</h2>
         <p className='md:text-center text-xl md:text-3xl font-bold'>Over two years of working experience</p>
       </main>
@@ -57,7 +85,7 @@ export default function About() {
 }
 
 
-function CardListItem({children} : { children: React.ReactNode }) {
+function CardListItem({ children }: { children: React.ReactNode }) {
   return (
     <li className='flex items-center gap-3'><CheckCircle2 /> {children}</li>
   )
