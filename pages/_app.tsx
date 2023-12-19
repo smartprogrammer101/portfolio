@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { Inter as FontSans } from "next/font/google"
+import NextNProgress from 'nextjs-progressbar';
 
 import { cn } from "@/lib/utils"
 
@@ -27,19 +28,21 @@ export default function App({ Component, pageProps }: AppProps) {
       disableTransitionOnChange
     >
       <TopBar />
+      <NextNProgress />
       <div className={fontSans.className}>
         <AnimatePresence>
           {openNavMenu && <NavMenu />}
         </AnimatePresence>
         <AnimatePresence mode='wait'>
           <motion.div
-            // key={router.route}
-            initial={{ x: 100 }}
-            animate={{ x: 0 }}
-            exit={{ x: -100 }}
-            transition={{ duration: .5 }}
+            key={router.route}
+            // initial={{ x: 100 }}
+            // animate={{ x: 0 }}
+            // exit={{ x: -100 }}
+            // transition={{ duration: .5 }}
           >
             <Component {...pageProps} />
+          <footer className='h-[100px]'></footer>
           </motion.div>
         </AnimatePresence>
       </div>
