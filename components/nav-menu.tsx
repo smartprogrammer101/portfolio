@@ -38,6 +38,7 @@ export default function NavMenu() {
       <Link
         href={'/'}
         className='w-[200px] flex gap-4 items-center pt-1'
+        onClick={() => setOpenNavMenu(false)}
       >
         {/* <img src='/personal-brand.svg' alt='brand name' /> */}
         <LogoIcon className='w-12 fill-background stroke-background dark:fill-foreground dark:stroke-foreground' />
