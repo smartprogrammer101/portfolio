@@ -9,7 +9,7 @@ import { TriangleDownIcon } from '@radix-ui/react-icons'
 export default function Header() {
   const handleClick = () => {
     const main = document.querySelector("main")
-    console.log(main?.offsetTop)
+    // console.log(main?.offsetTop)
     if (main?.offsetTop) {
       scrollTo({
         top: main.offsetTop - 70

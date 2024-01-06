@@ -33,7 +33,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                   <ExternalLinkIcon className='opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all text-muted-foreground' />
                 </Link>
               </CardTitle>
-              <CardDescription>
+              <CardDescription className='max-h-[200px] overflow-hidden'>
                 {project.description}
               </CardDescription>
             </CardHeader>
@@ -114,7 +114,7 @@ function ProjectCardImage({ src, href }: ProjectCardImageProps) {
         layoutId={src}
         src={src}
         className={cn(
-          'w-full h-full',
+          'w-full h-full object-cover object-left-top',
           // 'group-hover:scale-110 transition-transform duration-700'
           )}
         />

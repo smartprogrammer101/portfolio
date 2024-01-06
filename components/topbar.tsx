@@ -52,10 +52,12 @@ function NavLink({ children, href, ...props }: React.ComponentPropsWithoutRef<ty
       href={href}
       {...props}
       className={cn(
-        'relative block px-4 text-foreground hover:text-muted-foreground active:text-foreground/25 transition-colors',
+        'relative block px-4',
+        'active:text-foreground/25 transition-colors',
         // path === href && 'before:absolute before:-bottom-2 before:w-full before:h-[2px] before:bg-muted-foreground',
         // path === href && 'before:-left-[50%] before:translate-x-[50%]',
-        path === href && 'font-bold'
+        path === href && 'font-bold text-foreground hover:text-muted-foreground',
+        path !== href && 'text-muted-foreground hover:text-foreground',
       )}
     >{children}</Link>
   )
