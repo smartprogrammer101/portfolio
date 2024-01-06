@@ -40,8 +40,8 @@ export default function NavMenu() {
         className='w-[200px] flex gap-4 items-center pt-1'
       >
         {/* <img src='/personal-brand.svg' alt='brand name' /> */}
-        <LogoIcon className='fill-background stroke-background dark:fill-foreground dark:stroke-foreground' />
-        <BrandIcon className='fill-background dark:fill-foreground' />
+        <LogoIcon className='h-12 fill-background stroke-background dark:fill-foreground dark:stroke-foreground' />
+        <BrandIcon className='h-12 fill-background dark:fill-foreground' />
       </Link>
         <div className='flex items-center gap-8'>
           <ModeToggle className='text-foreground' />
