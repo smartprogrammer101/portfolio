@@ -13,7 +13,7 @@ const photos = [
 import 'swiper/swiper-bundle.css';
 
 export default function SwiperExample () {
-  return (
+    return (
     <Swiper
       modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
       spaceBetween={50}

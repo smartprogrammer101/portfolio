@@ -23,8 +23,8 @@ export default function TopBar() {
         className='group w-[200px] flex gap-4 items-center pt-2 hover:blur-[1px] active:blur-0'
       >
         {/* <img src='/personal-brand.svg' alt='brand name' /> */}
-        <LogoIcon className=' fill-foreground stroke-foreground' />
-        <BrandIcon className=' fill-foreground' />
+        <LogoIcon className='w-12 fill-foreground stroke-foreground' />
+        <BrandIcon className='h-12 fill-foreground' />
       </Link>
       <div className='flex items-center gap-8'>
         <ModeToggle />
@@ -52,10 +52,12 @@ function NavLink({ children, href, ...props }: React.ComponentPropsWithoutRef<ty
       href={href}
       {...props}
       className={cn(
-        'relative block px-4 text-foreground hover:text-muted-foreground active:text-foreground/25 transition-colors',
+        'relative block px-4',
+        'active:text-foreground/25 transition-colors',
         // path === href && 'before:absolute before:-bottom-2 before:w-full before:h-[2px] before:bg-muted-foreground',
         // path === href && 'before:-left-[50%] before:translate-x-[50%]',
-        path === href && 'font-bold'
+        path === href && 'font-bold text-foreground hover:text-muted-foreground',
+        path !== href && 'text-muted-foreground hover:text-foreground',
       )}
     >{children}</Link>
   )

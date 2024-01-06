@@ -9,7 +9,8 @@ type ProjectsProps = {
 
 export default function Projects({ projects }: ProjectsProps) {
   return (
-    <div className='pt-20'>
+    <div>
+      <h1 className='my-10 text-lg font-semibold text-muted-foreground px-10'>These are few of my projects</h1>
       <ProjectsSection projects={ projects } />
     </div>
   )

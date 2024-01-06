@@ -1,12 +1,11 @@
 import React from 'react'
-import { projects } from '@/lib/projects-data'
-import { useRouter } from 'next/router'
 import { motion } from 'framer-motion'
 import { cn, getProjectsData } from '@/lib/utils'
 import { ProjectsList } from '@/types'
 import { GetStaticPropsContext } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import ReactPlayer from 'react-player'
 
 
 type SingleProjectProps = {
@@ -23,6 +22,7 @@ export default function SingleProject({ project }: SingleProjectProps) {
   // }
   return (
     <div className='px-4'>
+      {/* <ReactPlayer url='/michael-jackson.mp4' controls /> */}
       <header className='pt-20 max-w-5xl mx-auto'>
         <motion.img
           // key={1}
@@ -63,6 +63,14 @@ export default function SingleProject({ project }: SingleProjectProps) {
           }}
           className='max-w-3xl'
         >{project.description}</motion.p>
+        <ul className='mt-4 font-bold flex items-center gap-2 text-xs cursor-default'>
+          {project.tools.map(tool => (
+            <li
+              key={ tool }
+              className='w-fit p-2 bg-foreground text-background rounded-3xl'
+            >{ tool }</li>
+          ))}
+        </ul>
       </header>
       <main className='pt-20 max-w-5xl mx-auto'>
         <div className='grid md:grid-cols-2 gap-8'>
@@ -88,7 +96,7 @@ export default function SingleProject({ project }: SingleProjectProps) {
           {project.prevProject && (
             <Link
               href={`/projects/${project.prevProject.slug}`}
-              scroll={false}
+              // scroll={false}
               className='group flex items-center md:gap-10 md:pr-10 md-max:hover:underline'
             >
               <ArrowLeft className='hidden md:block group-hover:-translate-x-4 transition-transform' />
@@ -103,7 +111,7 @@ export default function SingleProject({ project }: SingleProjectProps) {
           {project.nextProject && (
             <Link
               href={`/projects/${project.nextProject.slug}`}
-              scroll={false}
+              // scroll={false}
               className='group flex items-center md:gap-10 md:pr-10 md-max:hover:underline'
             >
               <div>
